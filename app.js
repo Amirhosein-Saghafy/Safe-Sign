@@ -2,6 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const helmet = require('helmet');
+const path = require('path');
 
 // importing modules
 const viewRouter = require('./Routes/viewRoutes');
@@ -13,7 +14,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 // using middlewares
-app.use(express.static('./Assets'));
+app.use(express.static(path.join(__dirname, 'Assets')));
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 app.use(bodyParser.text());
